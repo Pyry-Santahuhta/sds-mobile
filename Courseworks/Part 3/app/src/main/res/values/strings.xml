@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">List app</string>
+
+    <string-array name="pastas">
+        <item>Spaghetti</item>
+        <item>Penne</item>
+        <item>Linguine</item>
+        <item>Fusilli</item>
+    </string-array>
+
+    <string-array name="pastaNumbers">
+        <item>#5</item>
+        <item>#73</item>
+        <item>#13</item>
+        <item>#96</item>
+    </string-array>
+
+    <string-array name="pastaDescriptions">
+        <item>A long, thin, solid, cylindrical pasta</item>
+        <item>An extruded type of pasta with cylinder-shaped pieces</item>
+        <item>A type of pasta similar to fettuccine and trenette but elliptical in section rather than flat</item>
+        <item>A variety of pasta that are formed into corkscrew or helical shapes</item>
+    </string-array>
+</resources>
