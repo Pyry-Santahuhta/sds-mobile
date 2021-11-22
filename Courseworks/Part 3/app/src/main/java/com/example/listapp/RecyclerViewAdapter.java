@@ -18,17 +18,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    RecyclerViewAdapter(Context context, String[] data) {
+    RecyclerViewAdapter(Context context, String[] data, ItemClickListener itemClickListener) {
         List<String> dataList = Arrays.asList(data);
         this.mInflater = LayoutInflater.from(context);
         this.mData = dataList;
+        this.mClickListener = itemClickListener;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, mClickListener);
     }
 
     // binds the data to the TextView in each row
@@ -48,22 +49,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView pastaTextView;
-
-        ViewHolder(View itemView) {
+        ItemClickListener itemClickListener;
+        ViewHolder(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
             pastaTextView = itemView.findViewById(R.id.textView);
+            this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            itemClickListener.onItemClick(getAdapterPosition());
         }
     }
 
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
-        void onItemClick(View view, int position);
+
+        void onItemClick(int adapterPosition);
     }
+
 }
