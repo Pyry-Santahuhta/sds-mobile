@@ -2,6 +2,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -9,11 +10,26 @@
     android:padding="10dp">
 
     <TextView
+        android:layout_weight="1"
         android:textColor="@color/colorBlack"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20px"
         android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/container"
+        android:layout_width="30dp"
+        android:layout_height="30dp">
+        <ImageButton
+            android:background="@null"
+            android:id="@+id/deleteButton"
+            app:srcCompat="@android:drawable/ic_delete"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+             />
+    </LinearLayout>
 
 </LinearLayout>

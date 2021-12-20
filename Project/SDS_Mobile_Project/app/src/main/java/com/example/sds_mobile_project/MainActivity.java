@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         intent.putExtra("ingredients", recipes.get(position).getIngredients());
         intent.putExtra("instructions", recipes.get(position).getInstructions());
 
+        if(recipes.get(position).getImage() != null){
+            intent.putExtra("image", recipes.get(position).getImage().toString());
+        }
+
         intent.putExtra("index", String.valueOf(position+1));
 
         startActivity(intent);

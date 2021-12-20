@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-
     private ArrayList<Recipe> recipes;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
@@ -41,6 +41,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Recipe recipe = recipes.get(position);
         holder.recipeTextView.setText("\u2022 " + recipe.getTitle());
+
+        holder.deleteButton.setOnClickListener(v -> {
+        recipes.remove(recipes.get(position));
+        notifyItemRemoved(position);
+       });
     }
 
     // total number of rows
@@ -52,10 +57,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        ImageButton deleteButton;
         TextView recipeTextView;
         ItemClickListener itemClickListener;
         ViewHolder(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
             recipeTextView = itemView.findViewById(R.id.textView);
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);

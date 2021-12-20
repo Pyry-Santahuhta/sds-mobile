@@ -10,7 +10,7 @@ public class Recipe implements Serializable {
     private String title = "";
     private String ingredients = "";
     private String instructions = "";
-    private Uri image = null;
+    private String image = null;
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
@@ -24,7 +24,7 @@ public class Recipe implements Serializable {
         this.title = title;
     }
 
-    public void setImage(Uri image) {
+    public void setImage(String  image) {
         this.image = image;
     }
 
@@ -40,7 +40,7 @@ public class Recipe implements Serializable {
         return title;
     }
 
-    public Uri getImage() {
+    public String  getImage() {
         return image;
     }
 
