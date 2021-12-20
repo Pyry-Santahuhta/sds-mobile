@@ -1,9 +1,5 @@
 package com.example.sds_mobile_project;
 
-import android.net.Uri;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class Recipe implements Serializable {

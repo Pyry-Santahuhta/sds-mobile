@@ -7,14 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.sds_mobile_project.R;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Recipe> recipes;
@@ -41,10 +36,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Recipe recipe = recipes.get(position);
         holder.recipeTextView.setText("\u2022 " + recipe.getTitle());
-
         holder.deleteButton.setOnClickListener(v -> {
-        recipes.remove(recipes.get(position));
-        notifyItemRemoved(position);
+            System.out.println(position);
+            recipes.remove(recipes.get(position));
+            notifyDataSetChanged();
        });
     }
 
@@ -53,7 +48,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return recipes.size();
     }
-
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

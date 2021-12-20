@@ -3,12 +3,11 @@ package com.example.sds_mobile_project;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -27,15 +26,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
             recipes = (ArrayList<Recipe>) getIntent().getSerializableExtra("recipes");
 
         }else{
-            recipes = new ArrayList<Recipe>();
+            recipes = new ArrayList<>();
         }
+
         Resources res = getResources();
         recipeRecyclerView = findViewById(R.id.recipeRecyclerView);
-
         recipeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recipeAdapter = new RecyclerViewAdapter(this, recipes, this);
         recipeRecyclerView.setAdapter(recipeAdapter);
+
+        if(recipes.size() == 0){
+           TextView noRecipesTextView = findViewById(R.id.noRecipesTextView);
+           noRecipesTextView.setText("No recipes found, why not add some!");
+        }
 
         addRecipeButton = findViewById(R.id.addRecipeButton);
 
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         intent.putExtra("instructions", recipes.get(position).getInstructions());
 
         if(recipes.get(position).getImage() != null){
-            intent.putExtra("image", recipes.get(position).getImage().toString());
+            intent.putExtra("image", recipes.get(position).getImage());
         }
 
         intent.putExtra("index", String.valueOf(position+1));
