@@ -4,7 +4,7 @@ LUT university SDS-Mobile course repository. The course consisted of Three tasks
 
 # Contents
 
-Courseworks folder contains the exercises of the tasks 1-3.
+Courseworks folder contains the tasks 1-3.
 
 The project folder contains the course project,
 
