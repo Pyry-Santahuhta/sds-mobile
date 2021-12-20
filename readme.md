@@ -1,6 +1,6 @@
 # Software development skills: Mobile
 
-LUT univesity SDS-Mobile course repository.
+LUT university SDS-Mobile course repository. The course consisted of Three tasks and a project.
 
 # Contents
 
