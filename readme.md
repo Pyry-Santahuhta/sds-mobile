@@ -8,7 +8,7 @@ Courseworks folder contains the tasks 1-3.
 
 The project folder contains the course project,
 
-link to video of project running:
+# Link to project presentation:
 https://youtu.be/5WHBa8VDgO0
 
 
